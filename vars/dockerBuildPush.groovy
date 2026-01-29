@@ -1,4 +1,5 @@
 def call(Map configure = [:] ){
+  echo "CONFIG MAP => ${configure}"
   String image = configure.image
   String tag = configure.tag ?: 'latest'
 
