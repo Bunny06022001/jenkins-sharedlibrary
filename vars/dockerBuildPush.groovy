@@ -6,7 +6,7 @@ def call(Map configure = [:] ){
 sh '''
 docker rm -f $(docker ps -aq) || true
 docker rmi -f $(docker images -q) || true
-docker build -t image:tag
+docker build -t image:tag .
 
 '''
   withCredentials([
