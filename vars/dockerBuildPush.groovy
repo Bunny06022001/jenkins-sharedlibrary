@@ -6,7 +6,7 @@ def call(Map configure = [:] ){
 sh '''
 docker rm -f $(docker ps -aq) || true
 docker rmi -f $(docker images -q) || true
-docker build -t image:tag .
+docker build -t ${image}:${tag} .
 
 '''
   withCredentials([
@@ -19,7 +19,7 @@ docker build -t image:tag .
   ]){
     sh '''
     echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin
-    docker push image:tag
+    docker push ${image}:${tag}
     '''
   }
 
