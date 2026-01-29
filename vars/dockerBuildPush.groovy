@@ -4,12 +4,12 @@ def call(Map config = [:] ){
   String tag = config.tag ?: 'latest'
 
 
-sh '''
+sh """
 docker rm -f $(docker ps -aq) || true
 docker rmi -f $(docker images -q) || true
 docker build -t ${image}:${tag} .
 
-'''
+"""
   withCredentials([
       usernamePassword(
         credentialsId: 'docker',
@@ -18,10 +18,10 @@ docker build -t ${image}:${tag} .
     )
     
   ]){
-    sh '''
+    sh """
     echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin
     docker push ${image}:${tag}
-    '''
+    """
   }
 
 }
