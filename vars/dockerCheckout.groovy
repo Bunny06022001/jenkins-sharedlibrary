@@ -4,8 +4,8 @@ String repourl =  config.repourl
 checkout([
 	$class: 'GitSCM',
 	branches: [[name: branch]],
-	userRemoteConfigs[[
-		url: repourl
+	userRemoteConfigs: [[
+		url: repourl,
 		credentialsId: 'git'
 	]]
 ])
