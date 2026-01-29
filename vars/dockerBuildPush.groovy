@@ -11,6 +11,7 @@ docker build -t image:tag .
 '''
   withCredentials([
       usernamePassword(
+        credentialsId: 'docker'
       usernameVariable: 'DOCKER_USER',
         passwordVariable: 'DOCKER_PASS'
     )
