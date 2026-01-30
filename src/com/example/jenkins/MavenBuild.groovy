@@ -1,8 +1,10 @@
 package com.example.jenkins
+def script
 class MavenBuild{
 boolean skipTests
 
-	MavenBuild(Map config){
+	MavenBuild(def script,Map config){
+		this.script=script
 		this.skipTests=config.skipTests ?: 'false'
 	}
 	def mavenBuild(){
@@ -12,6 +14,6 @@ boolean skipTests
 
 	cmd+= "-DskipTests"
 	}
-	sh cmd
+	script.sh cmd
 	}
 }
