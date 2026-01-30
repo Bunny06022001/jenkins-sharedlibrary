@@ -10,7 +10,7 @@ class DockerDeploy{
     this.tag=config.tag
   }
   def deploy(){
-    if(params.ENV == 'prod'){
+    if(script.params.ENV == 'prod'){
   script.input(
     message: "are u sure to launch",
     ok: "launch now",
