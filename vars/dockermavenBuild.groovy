@@ -1,6 +1,4 @@
-def call(){
-  sh '''
-  mvn clean compile
-  mvn clean package
-  '''
+import com.example.jenkins.MavenBuild
+def call(Map config = [:]){
+ new MavenBuild(config).mavenBuild()
 }
