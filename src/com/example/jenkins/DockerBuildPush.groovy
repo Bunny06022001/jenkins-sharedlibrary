@@ -18,7 +18,7 @@ docker build -t ${image}:${tag} .
 
 """
   script.withCredentials([
-      usernamePassword(
+     script.usernamePassword(
         credentialsId: 'docker',
       usernameVariable: 'DOCKER_USER',
         passwordVariable: 'DOCKER_PASS'
