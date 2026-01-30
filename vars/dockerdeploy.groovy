@@ -9,7 +9,7 @@ if(params.ENV == 'prod'){
     submitter: "admin"
   )
 sh """
-docker run -d --name=app:${tag} -p \${APP_PORT}:8080 ${image}:${tag}
+docker run -d --name=app-${tag} -p \${APP_PORT}:8080 ${image}:${tag}
 """
 }
   
